@@ -12,10 +12,39 @@
     6.promise错误穿透?
       (1)当使用promise的then链式调用时, 可以在最后指定失败的回调, 
       (2)前面任何操作出了错误, 都会传到最后失败的回调中处理
+
     7.中断promise链?
       (1)当使用promise的then链式调用时, 在中间中断, 不再调用后面的回调函数
       (2)办法: 在回调函数中返回一个pendding状态的promise对象
     */
+
+    new Promise((resolve,reject)=>{
+      setTimeout(()=>{
+        resolve(900)
+      },1000)
+    }).then(
+      value => console.log('成功的回调调用了1',value),
+      //reason => {throw reason} //如果编码人员没有再then里指定失败的回调，相当于写了改行代码
+    ).then(
+      value => console.log('成功的回调调用了2',value),
+      //reason => {throw reason}
+    ).then(
+      value => {
+        console.log('成功的回调调用了3',value)
+        throw 500
+      }
+      //reason => {throw reason}
+    ).then(
+      value => console.log('成功的回调调用了4',value),
+      //reason => {throw reason}
+    ).catch(
+      reason => {
+        console.log('失败的回调调用了',reason)
+        return new Promise(()=>{})
+      }
+    ).then(
+      value => console.log('我是一个不太和谐的一个输出',value),
+    )
 
   </script>
 </body>

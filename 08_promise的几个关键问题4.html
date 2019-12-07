@@ -9,10 +9,46 @@
 <body>
   <script>
     /* 
-    5.promise如何串连多个操作任务?
+    promise如何串连多个操作任务?
       (1)promise的then()返回一个新的promise, 可以开成then()的链式调用
       (2)通过then的链式调用串连多个同步/异步任务
     */
+
+    new Promise((resolve,reject)=>{
+      console.log('开启了第1个异步任务')
+      setTimeout(()=>{
+        resolve('数据1')
+      },1000)
+    })
+    .then(
+      value => {
+        console.log('第1个异步任务成功了，值为：',value)
+        return value
+      }
+    )
+    .then(
+      value => {
+        console.log('开启了第2个同步任务')
+        let a = '数据2'
+        console.log('第2个同步任务成功了，值为：',a)
+        return a
+      }
+    )
+    .then(
+      value => {
+        console.log('开启了第3个异步任务')
+        return new Promise((resolve,reject)=>{
+          setTimeout(()=>{
+            let data = '数据3'
+            resolve(data)
+          },1000)
+        })
+      }
+    )
+    .then(
+      value => console.log('第3个异步任务成功了，值为：',value)
+    )
+
 
   </script>
 </body>
