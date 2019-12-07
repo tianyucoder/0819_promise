@@ -27,5 +27,36 @@
           pending ==> rejected
       3). 状态只能改变一次
   -->
+<script type="text/javascript">
+
+
+function sendAjax(url) {
+  return new Promise((resolve,reject)=>{ //执行器函数，同步的回调
+    //开启异步任务
+    const xhr = new XMLHttpRequest()
+    xhr.onreadystatechange = ()=>{
+      if(xhr.readyState !== 4) return
+      if(xhr.status >= 200 && xhr.status <= 299){
+        resolve(JSON.parse(xhr.response))
+      }else{
+        reject(new Error('请求失败'))
+      }
+    }
+    xhr.open('get',url)
+    xhr.send()
+  })
+}
+
+let a = sendAjax('https://api.apiopen.top/musicRankingsDetails?type=1')
+  setTimeout(()=>{
+    a.then(
+      value => console.log('onResolved',value),
+      reason => console.log('onRejected',reason.message)
+    )
+  },9000)
+
+
+
+</script>
 </body>
 </html>

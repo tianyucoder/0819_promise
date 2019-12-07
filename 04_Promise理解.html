@@ -18,7 +18,7 @@
 <script type="text/javascript">
 
   //初识Promise
- /* var promise1 = new Promise(function(resolve, reject) { //执行器函数(excutor),它是同步的回调
+  /*var promise1 = new Promise(function(resolve, reject) { //执行器函数(excutor),它是同步的回调
     //当我们new了一个Promise实例后，实例自身的状态是：初始化状态(pending)
     //执行器函数中，写异步代码
     setTimeout(function() {
@@ -47,7 +47,7 @@
     });
   };
 
-  myAsyncFunction('https://api.apiopen.top2/musicRankingsDetails?type=1').then(
+  myAsyncFunction('https://api.apiopen.top/musicRankingsDetails?type=1').then(
     value => console.log('onResolved',value),
     reason => console.log('onRejected',reason)
   )

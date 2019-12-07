@@ -17,5 +17,35 @@
         ①如果先指定的回调, 那当状态发生改变时, 回调函数就会调用, 得到数据
         ②如果先改变的状态, 那当指定回调时, 回调函数就会调用, 得到数据
   -->
+
+<script type="text/javascript">
+
+  //通常这样：先指定了成功和失败的回调，后改变的状态
+  let p = new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+      resolve(1)
+    },1000)
+  })
+
+  p.then(
+    value => console.log('成功的回调用了',value),
+    reason => console.log('失败的回调用了',reason)
+  )
+
+  //先改变状态，后指定回调
+  /*let p = new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+      resolve(1)
+    },1000)
+  })
+
+  setTimeout(()=>{
+    p.then(
+      values => console.log('成功的回调用了',values),
+      reason => console.log('失败的回调用了',reason)
+    )
+  },4000)*/
+
+</script>
 </body>
 </html>
