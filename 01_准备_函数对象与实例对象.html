@@ -14,6 +14,14 @@
       函数对象: 将函数作为对象使用时, 简称为函数对象
       实例对象: new 函数产生的对象, 简称为对象
     */
+    
+    function Person(name,age) { //构造函数
+      this.age = age
+      this.name = name
+    }
+
+    let p = new Person('kobe',18) //p是实例
+    console.log(p)
    
   </script>
 </body>

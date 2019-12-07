@@ -26,6 +26,59 @@
         message属性: 错误相关信息
         stack属性: 函数调用栈记录信息
   */
+
+  //1.ReferenceError: 引用的变量不存在
+  //console.log(a)
+
+  //2.TypeError数据类型不正确的错误
+  /*let b = {}
+  b()
+  let b = null
+  console.log(b.a)*/
+
+  //3.RangeError: 数据值不在其所允许的范围内
+  /*function demo() {
+    demo()
+  }
+  demo()*/
+
+  //4.SyntaxError: 语法错误
+  /*const a = '""'
+  console.log(a)*/
+
+  //捕获一个错误
+  /*try{
+    console.log(a) //写有可能会出现错误的代码
+  }catch(err){
+    console.log(err) //如果try中出现了错误，携带错误对象，来到catch中
+  }
+  console.log(1)*/
+
+  //抛出一个错误
+  function demo() {
+    //获取当前时间戳
+    const time = Date.now()
+    //若是奇数，逻辑正常执行；若是偶数，抛出异常
+    if(time%2 === 1){
+      console.log('奇数，可以干活',time)
+    }else{
+      //console.log('偶数,不干活了')
+      throw new Error('偶数,不干活了')
+    }
+  }
+
+  //捕获我们自己抛出的错误
+  try{
+    demo()
+  }catch(err){
+    debugger;
+    console.log(err)
+  }
+
+  console.log('哈哈')
+
+
+
 </script>
 </body>
 </html>

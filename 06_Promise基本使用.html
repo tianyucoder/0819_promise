@@ -8,7 +8,7 @@
 <body>
   <!-- 
   1. 重要语法
-      Promise(excute)构造函数
+      Promise(excutor)构造函数
       Promise.prototype.then方法
   2. 基本编码流程
       1) 创建promise对象(pending状态), 指定执行器函数
@@ -16,7 +16,7 @@
       3) 根据结果做不同处理
           3.1) 如果成功了, 调用resolve(), 指定成功的value, 变为resolved状态
           3.2) 如果失败了, 调用reject(), 指定失败的reason, 变为rejected状态
-      4) 能promise指定成功或失败的回调函数来获取成功的vlaue或失败的reason
+      4) 给promise指定成功或失败的回调函数来获取成功的vlaue或失败的reason
   3. promise对象的状态
       1) 三个状态: 
           pending: 未确定的, 起始时的状态
@@ -28,6 +28,21 @@
       3). 状态只能改变一次
   -->
   <script>
+
+    //1.创建promise对象(pending状态), 指定执行器函数
+    new Promise((resolve,reject)=>{
+      //2.在执行器函数中启动异步任务
+      setTimeout(()=>{
+        const time = Date.now()
+        //如果成功了, 调用resolve(), 指定成功的value, 变为resolved状态
+        if(time%2 === 1) resolve('奇数，成功了'+time)
+        //如果失败了, 调用reject(), 指定失败的reason, 变为rejected状态
+        else reject('偶数，失败了'+time)
+      },1000)
+    }).then( //给promise指定成功或失败的回调函数来获取成功的value或失败的reason
+      value => console.log('onResolved',value),
+      reason => console.log('onRejected',reason)
+    )
     
   </script>
 </body>
