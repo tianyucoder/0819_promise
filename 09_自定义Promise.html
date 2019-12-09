@@ -17,6 +17,7 @@
     },1000)
   })
 
+  setTimeout(()=>{
     p.then(
       value => console.log('onResolved1',value),
       reason => console.log('onRejected1',reason)
@@ -27,6 +28,7 @@
       value => console.log('onResolved3',value),
       reason => console.log('onRejected3',reason)
     )
+  },4000)
 
 </script>
   
