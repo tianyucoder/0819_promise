@@ -42,16 +42,16 @@
   }, 3000);*/
 
   //3.演示回调地狱(伪代码，主要看逻辑)
-  /*doSomething(function(result) {
+  doSomething(function(result) {
     doSomethingElse(result, function(newResult) {
       doThirdThing(newResult, function(finalResult) {
         console.log('Got the final result: ' + finalResult)
       }, failureCallback3)
     }, failureCallback2)
-  }, failureCallback1)*/
+  }, failureCallback1)
 
   //4.使用promise的链式调用解决回调地狱(伪代码，主要看结构)
-  /*doSomething()
+  doSomething()
     .then(function(result) {
       return doSomethingElse(result)
     })
@@ -61,10 +61,10 @@
     .then(function(finalResult) {
       console.log('Got the final result: ' + finalResult)
     })
-    .catch(failureCallback)*/
+    .catch(failureCallback)
 
   //5.Promise配合async/await: 回调地狱的终极解决方案(伪代码,主要看结构)
-  /*async function request() {
+  async function request() {
     try {
       const result = await doSomething()
       const newResult = await doSomethingElse(result)
@@ -73,7 +73,7 @@
     } catch (error) {
       failureCallback(error)
     }
-  }*/
+  }
 </script>
 </body>
 </html>

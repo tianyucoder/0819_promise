@@ -8,10 +8,10 @@
 
 <body>
 
-<script type="text/javascript" src="./lib/Promise.js"></script>
+<script type="text/javascript" src="lib/Promise_class.js"></script>
 <script type="text/javascript">
 
-  let p = new Promise((resolve,reject)=>{
+  /*let p = new Promise((resolve,reject)=>{
     setTimeout(()=>{
       resolve(1)
     },2000)
@@ -24,7 +24,55 @@
     ).then(
       value => console.log('onResolved3',value),
       reason => console.log('onRejected3',reason)
-    )
+    )*/
+  /*let p = Promise.resolve(Promise.reject(678))
+  p.then(
+    value => console.log('onResolved',value),
+    reason => console.log('onRejected',reason)
+  )*/
+
+  /*let a = Promise.reject(Promise.resolve(678))
+  a.then(
+    value => console.log('onResolved',value),
+    reason => console.log('onRejected',reason)
+  )*/
+
+  /*let p1 = new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+      resolve(1)
+    },9000)
+  })
+  let p2 = new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+      resolve(2)
+    },6000)
+  })
+  let p3 = new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+      resolve(3)
+    },7000)
+  })
+
+
+  let p = Promise.all([p1,p2,p3])
+  p.then(
+    value => console.log('onResolved',value),
+    reason => console.log('onRejected',reason)
+  )*/
+
+  /*let p = Promise.race([p1,p2,p3])
+  p.then(
+    value => console.log('onResolved',value),
+    reason => console.log('onRejected',reason)
+  )*/
+
+  /*let p = Promise.rejectDelay(678,3000)
+  p.then(
+    value => console.log('onResolved',value),
+    reason => console.log('onRejected',reason)
+  )*/
+
+
 
 </script>
   
