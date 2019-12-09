@@ -8,7 +8,50 @@
 </head>
 <body>
   <script>
-    
+
+    //代码一
+    /*setTimeout(()=>{
+      console.log('setTimeout callback')
+    },0)
+
+    Promise.resolve(1).then(
+      value => console.log('onResolved',value)
+    )*/
+
+    //代码二
+   /* setTimeout(()=>{
+      console.log('setTimeout callback',1)
+    })
+    setTimeout(()=>{
+      console.log('setTimeout callback',2)
+    })
+
+    Promise.resolve(3).then(
+      value => console.log('onResolved1',value)
+    )
+    Promise.resolve(4).then(
+      value => console.log('onResolved2',value)
+    )*/
+
+    //代码三
+    /*setTimeout(()=>{
+      console.log('setTimeout callback',1)
+      Promise.resolve(5).then(
+        value => console.log('onResolved3',value)
+      )
+    })
+    setTimeout(()=>{
+      console.log('setTimeout callback',2)
+    })
+
+    Promise.resolve(3).then(
+      value => console.log('onResolved1',value)
+    )
+    Promise.resolve(4).then(
+      value => console.log('onResolved2',value)
+    )*/
+
+
   </script>
 </body>
 </html>
