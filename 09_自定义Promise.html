@@ -13,22 +13,18 @@
 
   let p = new Promise((resolve,reject)=>{
     setTimeout(()=>{
-      reject(1)
-    },1000)
+      resolve(1)
+    },2000)
   })
 
-  setTimeout(()=>{
     p.then(
       value => console.log('onResolved1',value),
-      reason => console.log('onRejected1',reason)
-    ).then(
-      value => console.log('onResolved2',value),
+    ).catch(
       reason => console.log('onRejected2',reason)
     ).then(
       value => console.log('onResolved3',value),
       reason => console.log('onRejected3',reason)
     )
-  },4000)
 
 </script>
   
