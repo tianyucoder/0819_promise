@@ -7,7 +7,7 @@
 <body>
 
     <script>
-      /*
+      /* 3 7 4 1 2 5
       宏: []
       微: []
       */
@@ -19,16 +19,16 @@
             console.log(5)
             resolve(6)
           }, 0)
-          resolve(1)
+          resolve(1) //让p成功，value为1
         })
-        resolve(2)
-        p.then((arg) => { //1
-          console.log(arg)
+        resolve(2)//让first调用返回的那个Promise实例成功，value为2
+        p.then((arg) => {
+          console.log(arg) //1
         })
       }))
     
       first().then((arg) => {
-        console.log(arg)
+        console.log(arg) //2
       })
       console.log(4)
     </script>

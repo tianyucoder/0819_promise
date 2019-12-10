@@ -16,10 +16,14 @@
 
     Promise.resolve(1).then(
       value => console.log('onResolved',value)
-    )*/
+    )
+    Promise.resolve(2).then(
+      value => console.log('onResolved2',value)
+    )
+    console.log('主线程')*/
 
     //代码二
-   /* setTimeout(()=>{
+    /*setTimeout(()=>{
       console.log('setTimeout callback',1)
     })
     setTimeout(()=>{
@@ -34,10 +38,24 @@
     )*/
 
     //代码三
-    /*setTimeout(()=>{
+    /*
+    * 控制台输出：
+    *   onResolved3
+    *   onResolved4
+    *   setTimeout callback1
+    *   onResolved5
+    *   setTimeout callback2
+    *
+    * 宏队列(宏任务):[]
+    * 微队列(微任务):[]
+    *
+    * 每次执行一个宏任务时，都会检查微队列中是否有待执行的回调，有先执行微任务
+    * */
+
+    setTimeout(()=>{
       console.log('setTimeout callback',1)
       Promise.resolve(5).then(
-        value => console.log('onResolved3',value)
+        value => console.log('onResolved5',value)
       )
     })
     setTimeout(()=>{
@@ -45,11 +63,11 @@
     })
 
     Promise.resolve(3).then(
-      value => console.log('onResolved1',value)
+      value => console.log('onResolved3',value)
     )
     Promise.resolve(4).then(
-      value => console.log('onResolved2',value)
-    )*/
+      value => console.log('onResolved4',value)
+    )
 
 
   </script>
